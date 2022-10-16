@@ -12,7 +12,7 @@ A token can be requested using the following URL scheme (in C# syntax):
 string url = $"https://ghcr.io/token?scope=repository:{repo}:pull";
 ```
 
-The following example demonstrates the basic pattern, requesting a token for the `ghcr.io/richlander/dotnet-docker/aspnetapp` image.
+The following example demonstrates the pattern, requesting a token for the `ghcr.io/richlander/dotnet-docker/aspnetapp` repo.
 
 ```bash
 $ curl https://ghcr.io/token?scope=repository:richlander/dotnet-docker/aspnetapp:pull
