@@ -2,14 +2,14 @@
 
 Container registries expose a standard api -- [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/) -- that you can call to interact with container images. You can efficiently learn about images by downloading and processing very small image manifests (~2K; JSON format). Calling these APIs via `curl` isn't an alternative to the `docker` CLI, but enables additional workflows.
 
-The following piped commands tell us that nearly 2000 tags have been published to the `dotnet/runtime` repo in the `mcr.microsoft.com` registry.
+The following set of commands tell us that nearly 2000 tags have been published to the `dotnet/runtime` repo in the `mcr.microsoft.com` registry.
 
 ```bash
 curl -s https://mcr.microsoft.com/v2/dotnet/runtime/tags/list | jq .tags | wc -l
 1997
 ```
 
-It's also straightforward to write general [registry clients](https://github.com/mthalman/dredge) or more specific ones that perform tasks like [perform up-to-date checks](https://github.com/richlander/lucy) for images.
+It's also straightforward to write general [registry clients](https://github.com/mthalman/dredge) or more specific ones that perform tasks like image [up-to-date checks](https://github.com/richlander/lucy).
 
 The remainder of this document discussed image manifests.
 
