@@ -1,6 +1,6 @@
 # GithHub Container Registry
 
-GitHub requires authentication for both public and private images. The scheme for both is a bit different.
+GitHub Container Registry requires authentication for both public and private images. The scheme for both is a bit different.
 
 ## Accessing public images
 
