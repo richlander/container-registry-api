@@ -15,16 +15,7 @@ string url = $"https://ghcr.io/token?scope=repository:{repo}:pull";
 The following example demonstrates the pattern, requesting a token for the `ghcr.io/richlander/dotnet-docker/aspnetapp` repo.
 
 ```bash
-$ curl https://ghcr.io/token?scope=repository:richlander/dotnet-docker/aspnetapp:pull
-{"token":"djE6cmljaGxhbmRlci9kb3RuZXQtZG9ja2VyL2FzcG5ldGFwcDoxNjY1ODgwMTIwMzUyOTY3Mjg0"}
-```
-
-If you want to make the token easier to use, you can use the following pattern with `jq`:
-
-```bash
 $ TOKEN=$(curl -s https://ghcr.io/token?scope=repository:richlander/dotnet-docker/aspnetapp:pull | jq -r .token)
-$ echo $TOKEN
-djE6cmljaGxhbmRlci9kb3RuZXQtZG9ja2VyL2FzcG5ldGFwcDoxNjY1ODgwMjQ0MDE4NDMxMTE4
 ```
 
 After you have the token you can apply it to an `Authorization` header.

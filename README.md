@@ -151,11 +151,11 @@ $ curl -s -H "Accept: application/vnd.docker.image.rootfs.diff.tar.gzip" https:/
 
 ## Authorization
 
-Some registrations require authorization, for both public and private content. These use some more of [Docker Registry Token Authentication](https://docs.docker.com/registry/spec/auth/) scheme.
+Some registrations require authorization, for both public and private content. These use some form of [Docker Registry Token Authentication](https://docs.docker.com/registry/spec/auth/) scheme.
 
 Authorization information is provided by a `Bearer` token in an `Authorization` header.
 
-These schemas are significantly different per registry:
+These schemes are significantly different per registry:
 
 - [Azure Container Registry](acr.md)
 - [Docker Hub Registry](docker-hub.md)

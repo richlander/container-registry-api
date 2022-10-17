@@ -1,6 +1,6 @@
 # GithHub Container Registry
 
-GitHub requires authentication for both public and private images. The scheme for both is a bit different.
+GitHub requires authentication for both public and private images.
 
 ## Accessing public images
 
@@ -15,17 +15,7 @@ string url = $"https://auth.docker.io/token?service=registry.docker.io&scope=rep
 The following example demonstrates the pattern, requesting a token for the `library/debian` repo. Make sure to quote the string or the `&` will cause `curl` to suspend.
 
 ```bash
-$ curl "https://auth.docker.io/token?service=registry.docker.io&scope=repository:library/debian:pull"
-```
-
-Note: output is quite long, so isn't included.
-
-If you want to make the token easier to use, you can use the following pattern with `jq`:
-
-```bash
 $ TOKEN=$(curl -s "https://auth.docker.io/token?service=registry.docker.io&scope=repository:library/debian:pull" | jq -r .token)
-$ echo $TOKEN
-VERY-LONG-TOKEN
 ```
 
 After you have the token you can apply it to an `Authorization` header.
