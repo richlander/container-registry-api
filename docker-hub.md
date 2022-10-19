@@ -1,6 +1,6 @@
-# GithHub Container Registry
+# Docker Hub Container Registry
 
-GitHub requires authentication for both public and private images.
+Docker Hub requires authentication for both public and private images.
 
 ## Accessing public images
 
