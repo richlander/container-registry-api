@@ -83,5 +83,6 @@ curl -s -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.docker.dis
 ## Related resources
 
 - [How to `curl` Docker Registry HTTP API](README.md)
+- https://github.com/Azure/acr/blob/main/docs/Token-BasicAuth.md
 - https://zimmergren.net/using-tokens-and-scope-maps-azure-container-registry-acr-repository-level-access-restriction/
 - https://stackoverflow.com/questions/71163896/how-to-authenticate-azure-container-registry-https-registry-azurecr-io-v2

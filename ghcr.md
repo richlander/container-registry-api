@@ -133,6 +133,7 @@ $ curl -s -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.docker.d
 ## Related resources
 
 - [How to `curl` Docker Registry HTTP API](README.md)
+- https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 - https://github.com/orgs/community/discussions/26279
 - https://gist.github.com/eggplants/a046346571de66656f4d4d34de69fdd0
 - https://gist.github.com/shizhMSFT/b77f2d7f993268a1bdd45a7462866906

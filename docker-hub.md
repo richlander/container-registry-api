@@ -177,6 +177,7 @@ Note: The specific repo use in the example was private at the time of writing. T
 - [How to `curl` Docker Registry HTTP API](README.md)
 - https://docs.docker.com/registry/spec/auth/
 - https://docs.docker.com/docker-hub/access-tokens/
+- https://github.com/distribution/distribution/blob/main/docs/spec/auth/token.md
 - https://www.arthurkoziel.com/dockerhub-registry-api/
 - https://stackoverflow.com/questions/70573806/docker-registry-v2-authentication-using-oauth2-does-not-return-refresh-token-whe
 - https://stackoverflow.com/questions/39639129/docker-hub-api-v2-token-authentication-issue
