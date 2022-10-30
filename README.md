@@ -146,25 +146,18 @@ This request was made with both the `v2` media types in the `Accept` header. Tha
 You can see that each of the layers are the `application/vnd.docker.image.rootfs.diff.tar.gzip` media type. You can request those in a similar way.
 
 ```bash
-$ curl -s -H "Accept: application/vnd.docker.image.rootfs.diff.tar.gzip" https://mcr.microsoft.com/v2/dotnet/runtime/blobs/sha256:e9995326b091af7b3ce352fad4d76cf3a3cb62b7a0c35cc5f625e8e649d23c50
-<a href="https://westus2.data.mcr.microsoft.com/01031d61e1024861afee5d512651eb9f-h36fskt2ei//docker/registry/v2/blobs/sha256/e9/e9995326b091af7b3ce352fad4d76cf3a3cb62b7a0c35cc5f625e8e649d23c50/data?se=2022-10-30T22%3A08%3A45Z&amp;sig=FOpRRXh5FdQ1dALu3qWKh8XarsZEeiDqvpatwz4cfGc%3D&amp;sp=r&amp;spr=https&amp;sr=b&amp;sv=2016-05-31&amp;regid=01031d61e1024861afee5d512651eb9f">Temporary Redirect</a>.
-```
-
-If you request that content, you will see that `curl` warns you that the content is binary data. There is a reason for that (it's binary data).
-
-```bash
-$ curl "https://westus2.data.mcr.microsoft.com/01031d61e1024861afee5d512651eb9f-h36fskt2ei//docker/registry/v2/blobs/sha256/e9/e9995326b091af7b3ce352fad4d76cf3a3cb62b7a0c35cc5f625e8e649d23c50/data?se=2022-10-30T22%3A08%3A45Z&amp;sig=FOpRRXh5FdQ1dALu3qWKh8XarsZEeiDqvpatwz4cfGc%3D&amp;sp=r&amp;spr=https&amp;sr=b&amp;sv=2016-05-31&amp;regid=01031d61e1024861afee5d512651eb9f"
+$ curl -L -H "Accept: application/vnd.docker.image.rootfs.diff.tar.gzip" https://mcr.microsoft.com/v2/dotnet/runtime/blobs/sha256:e9995326b091af7b3ce352fad4d76cf3a3cb62b7a0c35cc5f625e8e649d23c50
 Warning: Binary output can mess up your terminal. Use "--output -" to tell
 Warning: curl to output it to your terminal anyway, or consider "--output
 Warning: <FILE>" to save to a file.
 ```
 
+If you request that content, you will see that `curl` warns you that the content is binary data. There is a reason for that (it's binary layer data).
+
 However, the first digest in the manifest (before the `layers` content) is special. It's not binary data, but metadata for the image. Let's take a look.
 
 ```bash
-$ curl -s -H "Accept: application/vnd.docker.image.rootfs.diff.tar.gzip" https://mcr.microsoft.com/v2/dotnet/runtime/blobs/sha256:0aeb78cec714e0e0062824f19ed6ff1b6747fececf864f0951b2b446bb4eb3fd
-<a href="https://westus2.data.mcr.microsoft.com/01031d61e1024861afee5d512651eb9f-h36fskt2ei//docker/registry/v2/blobs/sha256/0a/0aeb78cec714e0e0062824f19ed6ff1b6747fececf864f0951b2b446bb4eb3fd/data?se=2022-10-30T22%3A06%3A37Z&amp;sig=DX72eZm4uMgOO9WTHY%2BxJ%2BdDXHglRlGmNv5qqjSVadg%3D&amp;sp=r&amp;spr=https&amp;sr=b&amp;sv=2016-05-31&amp;regid=01031d61e1024861afee5d512651eb9f">Temporary Redirect</a>.
-$ curl -s "https://westus2.data.mcr.microsoft.com/01031d61e1024861afee5d512651eb9f-h36fskt2ei//docker/registry/v2/blobs/sha256/0a/0aeb78cec714e0e0062824f19ed6ff1b6747fececf864f0951b2b446bb4eb3fd/data?se=2022-10-30T22%3A06%3A37Z&amp;sig=DX72eZm4uMgOO9WTHY%2BxJ%2BdDXHglRlGmNv5qqjSVadg%3D&amp;sp=r&amp;spr=https&amp;sr=b&amp;sv=2016-05-31&amp;regid=01031d61e1024861afee5d512651eb9f" | jq
+$ curl -sL -H "Accept: application/vnd.docker.image.rootfs.diff.tar.gzip" https://mcr.microsoft.com/v2/dotnet/runtime/blobs/sha256:0aeb78cec714e0e0062824f19ed6ff1b6747fececf864f0951b2b446bb4eb3fd | jq
 {
   "architecture": "amd64",
   "config": {
